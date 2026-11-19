@@ -10,9 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/fetching' element={<ApiFetching/>}/>
-          <Route path='/details/:/id' element={<Productdetails/>}/>
-
-
+          <Route path='/details/:id' element={<Productdetails/>}/>
         </Routes>
       </BrowserRouter>
      

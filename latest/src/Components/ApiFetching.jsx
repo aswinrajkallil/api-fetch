@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Productdetails from './Productdetails'
 
 
 function ApiFetching() {
   const [posts , setposts] = useState([])
-   const navigate =  useNavigate()
+  const navigate =  useNavigate()
 
         useEffect(()=>{
-            fetchingdata()
-            }, [])
+          fetchingdata()
+        }, [])
 
   const fetchingdata = async ()=>{
     try {
@@ -19,26 +20,27 @@ function ApiFetching() {
         setposts(response.data)
         
     } catch (error) {
+        console.log(error);
         
     }
   }
 
 
   const gotodetails = (id)=>{
-     navigate(`/details/${id}`)
+    navigate(`/details/${id}`)
   }
 
   return (
-    <div>
+      <div>
 
-        {posts.map((items)=>(
-            <div key={items.id}> 
-                <h1>{items.body}</h1>
-                   <h2>{items.title}</h2>
-                   <button onClick={()=>gotodetails(items.id)}>view details</button>
-            </div>
-        ))}
-      
+          {posts.map((items)=>(
+              <div key={items.id}> 
+                  <h1>{items.body}</h1>
+                    <h2>{items.title}</h2>
+                    <button onClick={()=>gotodetails(items.id)}>view details</button>
+              </div>
+          ))}
+        
     </div>
   )
 }
