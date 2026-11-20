@@ -2,6 +2,7 @@ import React from 'react'
 import ApiFetching from './Components/ApiFetching'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Productdetails from './Components/Productdetails'
+import Parent from './Components/Parent'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path='/fetching' element={<ApiFetching/>}/>
           <Route path='/details/:id' element={<Productdetails/>}/>
+          <Route path='/parent' element={<Parent/>}/>
         </Routes>
       </BrowserRouter>
      
